@@ -1,4 +1,10 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, {
+  Fragment,
+  useEffect,
+  useState,
+  useCallback,
+  useMemo,
+} from "react";
 import "./Content.css";
 import Container from "../Container/Container";
 import Website1 from "../Websites/Website1/Website1";
@@ -6,40 +12,76 @@ import Website2 from "../Websites/Website2/Website2";
 import Website3 from "../Websites/Website3/Website3";
 import Loading from "../Loading/Loading";
 
+// Predefined positions for different screen widths
 const postions = [
   ["translate(-10%, 15%)", "translate(-12%, 15%)", "translate(-20%, 15%)"],
   ["translate(0%, 10%)", "translate(0%, 10%)", "translate(0%, 10%)"],
   ["translate(10%, 5%)", "translate(12%, 5%)", "translate(20%, 5%)"],
 ];
-const windowsWidth = window.innerWidth;
 
 const Content = () => {
   const [loading, setLoading] = useState(true);
   const [ctns, setCtns] = useState([
-    {
-      type: 1,
-      "z-index": 1,
-      position: 0,
-      website: Website3,
-    },
-    {
-      type: 2,
-      "z-index": 1,
-      position: 1,
-      website: Website2,
-    },
-    {
-      type: 3,
-      "z-index": 1,
-      position: 2,
-      website: Website1,
-    },
+    { type: 1, "z-index": 1, position: 0, website: Website3 },
+    { type: 2, "z-index": 1, position: 1, website: Website2 },
+    { type: 3, "z-index": 1, position: 2, website: Website1 },
   ]);
+  const [windowsWidth, setWindowsWidth] = useState(window.innerWidth);
+
   useEffect(() => {
+    const handleResize = () => setWindowsWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
     setTimeout(() => {
       setLoading(false);
     }, 1000);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // Memoize the click handler to avoid unnecessary function creation on every render
+  const handleClick = useCallback(
+    (index) => {
+      setCtns((prevState) => {
+        const newState = [...prevState];
+        const clickedCtn = newState[index];
+        const clickedPosition = clickedCtn.position;
+
+        if (clickedPosition === 2) {
+          return prevState; // No updates needed
+        }
+
+        return newState.map((ctn, i) => {
+          if (i === index) {
+            return { ...ctn, position: 2, "z-index": 3 };
+          }
+
+          const newPosition = ctn.position + 1;
+          if (newPosition >= 2) {
+            if (ctn.position === 2) {
+              return { ...ctn, position: 0, "z-index": 1 };
+            }
+            return { ...ctn, position: 1, "z-index": 2 };
+          }
+          return { ...ctn, position: newPosition, "z-index": 2 };
+        });
+      });
+    },
+    [] // Only recreate this function if the dependencies change
+  );
+
+  // Memoize the style object for each container
+  const containerStyles = useMemo(() => {
+    return ctns.map((ctn) => ({
+      zIndex: ctn["z-index"],
+      transform:
+        windowsWidth < 640
+          ? postions[ctn.position][0]
+          : windowsWidth >= 640 && windowsWidth < 1120
+          ? postions[ctn.position][1]
+          : postions[ctn.position][2],
+    }));
+  }, [ctns, windowsWidth]);
 
   return (
     <Fragment>
@@ -49,57 +91,10 @@ const Content = () => {
         <div className='content'>
           {ctns.map((ctn, index) => (
             <Container
-              clicked={() =>
-                setCtns((prevState) => {
-                  const state = [...prevState]; // Create a shallow copy of the previous state
-
-                  const clickedCtn = state[index];
-                  const clickedPosition = clickedCtn.position;
-
-                  // If the clicked item is already in position 2, return the state without changes
-                  if (clickedPosition === 2) {
-                    return prevState; // No updates needed
-                  }
-
-                  // Update the clicked item and other items in one pass
-                  const newState = state.map((ctn, i) => {
-                    if (i === index) {
-                      // Set the clicked item to position 2 and z-index 3
-                      return { ...ctn, position: 2, "z-index": 3 };
-                    }
-
-                    // Calculate the new position for other items
-                    const newPosition = ctn.position + 1;
-
-                    // Logic for updating positions and z-index based on the newPosition
-                    if (newPosition >= 2) {
-                      if (ctn.position === 2) {
-                        // If current position is 2, reset to position 0 and z-index 1
-                        return { ...ctn, position: 0, "z-index": 1 };
-                      } else {
-                        // If current position is 1 or 0, move to position 1 and z-index 2
-                        return { ...ctn, position: 1, "z-index": 2 };
-                      }
-                    } else {
-                      // Default: increase position by 1 and set z-index to 2
-                      return { ...ctn, position: newPosition, "z-index": 2 };
-                    }
-                  });
-
-                  return newState;
-                })
-              }
               key={ctn.type}
+              clicked={() => handleClick(index)}
               type={ctn.type}
-              style={{
-                zIndex: ctn["z-index"],
-                transform:
-                  windowsWidth < 640
-                    ? postions[ctn.position][0]
-                    : windowsWidth >= 640 && windowsWidth < 1120
-                    ? postions[ctn.position][1]
-                    : postions[ctn.position][2],
-              }}
+              style={containerStyles[index]}
             >
               {React.createElement(ctn.website)}
             </Container>
@@ -109,4 +104,5 @@ const Content = () => {
     </Fragment>
   );
 };
+
 export default React.memo(Content);
