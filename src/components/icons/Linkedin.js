@@ -48,4 +48,4 @@ const WrappedLinkedIn = () => (
   </Icon>
 );
 
-export default WrappedLinkedIn;
+export default React.memo(WrappedLinkedIn);

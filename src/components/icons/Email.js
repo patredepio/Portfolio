@@ -46,4 +46,4 @@ const WrappedEmail = () => (
     <Email />
   </Icon>
 );
-export default WrappedEmail;
+export default React.memo(WrappedEmail);

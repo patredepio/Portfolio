@@ -22,4 +22,4 @@ const Coding = (props) => {
   );
 };
 
-export default Coding;
+export default React.memo(Coding);

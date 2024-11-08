@@ -14,11 +14,6 @@ const postions = [
 const Content = () => {
   const [loading, setLoading] = useState(true);
   const [windowsWidth, setWindowsWidth] = useState(window.innerWidth);
-
-  const { innerWidth } = window;
-  useEffect(() => {
-    setWindowsWidth(innerWidth);
-  }, [innerWidth]);
   const [ctns, setCtns] = useState([
     {
       type: 1,

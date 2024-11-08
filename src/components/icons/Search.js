@@ -22,4 +22,4 @@ const SearchIcon = (props) => {
   );
 };
 
-export default SearchIcon;
+export default React.memo(SearchIcon);

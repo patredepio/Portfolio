@@ -7,7 +7,7 @@ const Website1 = () => {
   return (
     <Fragment>
       <nav className={classes.navbar}>
-        <h2 className={classes.title}>Ponan`s Arc</h2>
+        <h2 className={classes.title}>Ponan`s Arc (Dummy)</h2>
         <div className={classes.iconContainer}>
           <div className={classes.desktopOnly}>
             <SearchIcon className={classes.icon} />
@@ -35,4 +35,4 @@ const Website1 = () => {
   );
 };
 
-export default Website1;
+export default React.memo(Website1);

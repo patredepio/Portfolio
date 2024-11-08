@@ -29,4 +29,4 @@ const Website3 = () => {
   );
 };
 
-export default Website3;
+export default React.memo(Website3);

@@ -38,4 +38,4 @@ const Website2 = () => {
   );
 };
 
-export default Website2;
+export default React.memo(Website2);

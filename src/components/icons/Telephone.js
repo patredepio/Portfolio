@@ -24,4 +24,4 @@ const WrappedTelephone = () => (
   </Icon>
 );
 
-export default WrappedTelephone;
+export default React.memo(WrappedTelephone);

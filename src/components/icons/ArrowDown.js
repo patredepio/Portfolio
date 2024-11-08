@@ -25,4 +25,4 @@ const ArrowDown = (props) => {
   );
 };
 
-export default ArrowDown;
+export default React.memo(ArrowDown);

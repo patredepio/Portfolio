@@ -25,4 +25,4 @@ const WrappedPhone = () => (
   </Icon>
 );
 
-export default WrappedPhone;
+export default React.memo(WrappedPhone);
