@@ -7,7 +7,7 @@ const Website1 = () => {
   return (
     <Fragment>
       <nav className={classes.navbar}>
-        <h2 className={classes.title}>Ponan`s Arc (Dummy)</h2>
+        <h2 className={classes.title}>Ponan`s Arc </h2>
         <div className={classes.iconContainer}>
           <div className={classes.desktopOnly}>
             <SearchIcon className={classes.icon} />
@@ -28,7 +28,9 @@ const Website1 = () => {
       <main className={classes.webMain}>
         <ArrowDown className={[classes.icon, classes.arrowDown].join(" ")} />
         <div className={classes.contentContainer}>
-          <button className={classes.button}>Get Started</button>
+          <button className={classes.button}>
+            Get Started, it doesn't work
+          </button>
         </div>
       </main>
     </Fragment>

@@ -20,16 +20,16 @@
       rgba(127, 118, 111, 0.67) 0%,
       rgba(168, 159, 149, 0.298) 100%
     ),
-    url("../../assets/Images/wedding-decoration.jpg") center / cover;
+    url("../../assets/Images/wedding-decoration.avif") center / cover;
 }
 .container-2 {
   background-color: #ba6422;
 
-  background-image: url("../../assets/Images/burger.jpg");
+  background-image: url("../../assets/Images/burger.avif");
 }
 .container-3 {
   background-color: #545454;
-  background-image: url("../../assets/Images/architecture.jpg");
+  background-image: url("../../assets/Images/architecture.avif");
 }
 
 @media (hover: hover) {

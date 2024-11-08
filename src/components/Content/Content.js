@@ -11,9 +11,10 @@ const postions = [
   ["translate(0%, 10%)", "translate(0%, 10%)", "translate(0%, 10%)"],
   ["translate(10%, 5%)", "translate(12%, 5%)", "translate(20%, 5%)"],
 ];
+const windowsWidth = window.innerWidth;
+
 const Content = () => {
   const [loading, setLoading] = useState(true);
-  const [windowsWidth, setWindowsWidth] = useState(window.innerWidth);
   const [ctns, setCtns] = useState([
     {
       type: 1,
@@ -39,6 +40,7 @@ const Content = () => {
       setLoading(false);
     }, 1000);
   }, []);
+
   return (
     <Fragment>
       {loading ? (
