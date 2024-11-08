@@ -1,0 +1,96 @@
+.navbar {
+  display: flex;
+  color: white;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  height: 3rem;
+}
+
+.logo {
+  font-size: 15px;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+.navbarLinks {
+  display: none;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.main {
+  height: calc(100% - 3.5rem);
+}
+.title {
+  font-size: 15px;
+  width: 50%;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  color: white;
+  margin-top: 20px;
+}
+
+.button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 10px;
+  cursor: pointer;
+  margin-top: 4rem;
+}
+.actions {
+  display: flex;
+}
+.dots {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+  margin: 35% auto;
+  align-items: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+}
+.dot:nth-child(1) {
+  background-color: #545454;
+}
+
+@media (min-width: 40rem) {
+  .logo {
+    font-size: 17px;
+  }
+  .icon {
+    display: none;
+  }
+  .title {
+    font-size: 25px;
+    width: 60%;
+  }
+  .navbarLinks {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 10px;
+    display: flex;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  }
+  .link {
+    margin: 0 1.5rem;
+    font-weight: bold;
+    font-size: 10px;
+  }
+  .button {
+    font-size: 15px;
+  }
+  .dots {
+    margin: 20% auto;
+  }
+}

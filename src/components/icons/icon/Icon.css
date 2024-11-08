@@ -1,0 +1,8 @@
+.icon {
+  display: block;
+  height: 1.5vw;
+  width: 1.5vw;
+  min-height: 20px;
+  min-width: 20px;
+  margin: 0 10px;
+}

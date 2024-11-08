@@ -1,0 +1,8 @@
+.content {
+  height: 600px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  /* align-items: stretch; */
+}

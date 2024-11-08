@@ -1,0 +1,44 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  height: 4.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #545454;
+  z-index: 4;
+  top: 0;
+  background-color: #f1ecec;
+}
+
+.contact-content {
+  display: none;
+}
+
+.contact {
+  margin: 0 1rem;
+}
+
+.logo-container {
+  margin: 0 2rem;
+}
+.information {
+  display: inline-flex;
+}
+@media (min-width: 40rem) {
+  .contact-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+  }
+  .contact-content a {
+    text-decoration: none;
+    color: #545454;
+    font-size: 12px;
+  }
+  .information {
+    display: none;
+  }
+}

@@ -1,0 +1,39 @@
+.container {
+  height: 400px;
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+  position: absolute;
+  border: 1px solid transparent;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 10px;
+  overflow: hidden;
+  box-shadow: 2px 2px 10px #555454cc;
+  transition: all 0.3s ease-in-out;
+}
+.container-1 {
+  background-color: #cccccc;
+  transform: translate(-10%, 15%);
+  background: linear-gradient(
+      rgba(127, 118, 111, 0.67) 0%,
+      rgba(168, 159, 149, 0.298) 100%
+    ),
+    url("../../assets/Images/wedding-decoration.jpg") center / cover;
+}
+.container-2 {
+  background-color: #f1f1f1;
+
+  background-image: url("../../assets/Images/burger.jpg");
+}
+.container-3 {
+  background-image: url("../../assets/Images/architecture.jpg");
+}
+
+@media (hover: hover) {
+  .container:hover {
+    border: 1px solid #686b6d;
+    cursor: pointer;
+  }
+}
