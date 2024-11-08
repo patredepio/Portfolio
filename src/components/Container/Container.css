@@ -23,11 +23,12 @@
     url("../../assets/Images/wedding-decoration.jpg") center / cover;
 }
 .container-2 {
-  background-color: #f1f1f1;
+  background-color: #ba6422;
 
   background-image: url("../../assets/Images/burger.jpg");
 }
 .container-3 {
+  background-color: #545454;
   background-image: url("../../assets/Images/architecture.jpg");
 }
 

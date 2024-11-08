@@ -12,4 +12,4 @@ const Container = ({ type = 1, clicked, ...props }) => {
   );
 };
 
-export default Container;
+export default React.memo(Container);
