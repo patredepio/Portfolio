@@ -8,7 +8,7 @@ const Icon = ({ email = false, linkedIn, ...props }) => {
           ? "mailto:patredepio@protonmail.com"
           : linkedIn
           ? "https:www.linkedin.com/in/osamudiamen-egharevba-088aa130a"
-          : "tel:+234811474746"
+          : "tel:+2348083651821"
       }
       target={linkedIn ? "_blank" : "_self"}
       rel='noreferrer'
