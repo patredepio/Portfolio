@@ -22,9 +22,10 @@ const Navbar = () => {
         <div>
           <a
             className='contact'
-            href='tel:+2348111474746'
+            href='https://wa.me/08083651821'
+            target='_blank'
           >
-            +234 811 474 746
+            +234 808 3651 821
           </a>
         </div>
       </div>
